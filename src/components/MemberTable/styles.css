@@ -1,0 +1,87 @@
+/* src/styles/MemberTable.css */
+.custom-table .ant-table-thead > tr > th {
+  background: rgba(0, 0, 0, 0.02);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+  color: rgba(0, 0, 0, 0.88);
+}
+
+.custom-table .ant-table-tbody > tr {
+  height: 48px;
+}
+
+.custom-table .ant-table-tbody > tr > td {
+  padding: 8px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: rgba(0, 0, 0, 0.88);
+}
+
+.custom-table .ant-table-tbody > tr > td.ant-table-selection-column {
+  box-sizing: border-box;
+  padding: 8px;
+  width: 32px;
+  height: 48px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.custom-table .ant-table-tbody > tr:hover > td {
+  background: #fafafa;
+}
+
+.custom-table .ant-table-column-sorter {
+  display: none;
+}
+
+.custom-table .ant-table-filter-trigger {
+  width: 20px;
+  height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.custom-table .ant-table-filter-trigger .anticon {
+  width: 12px;
+  height: 12px;
+  color: rgba(0, 0, 0, 0.25);
+}
+
+.custom-table .ant-checkbox-wrapper {
+  margin: 0;
+}
+
+.custom-table .ant-checkbox-inner {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #e3e3e3;
+  border-radius: 6px;
+}
+
+.custom-table .ant-checkbox-checked .ant-checkbox-inner {
+  background: #4a7cfe;
+  border-color: #4a7cfe;
+}
+
+.custom-table .ant-checkbox-checked .ant-checkbox-inner::after {
+  border-color: #ffffff;
+}
+
+.custom-table .ant-table-body {
+  max-height: calc(100vh - 48px - 38px);
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+/* 헤더 고정 스타일 */
+.custom-table .ant-table-thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}

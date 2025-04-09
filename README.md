@@ -13,15 +13,15 @@ Business Canvas 프론트엔드 개발 과제를 위한 프로젝트입니다. �
 2. **프로젝트 초기 설정**
 
    - Vite로 React + TypeScript 환경 구축.
-   - AntD와 테스트 도구(Vitest, React Testing Library) 설치.
+   - AntD와 테스트 도구(Vitest) 설치.
    - 환경 변수 설정.
 
 3. **구현**
 
-   - CRUD 로직 분리.
-   - 모달 공통 컴포넌트 생성.
    - AntD를 사용하여 회원 목록 구현.
-   - Figma 디자인에 맞춰 CSS 커스터마이징 진행.
+   - 모달 공통 컴포넌트 구현.
+   - CRUD 로직 구현.
+   - Figma 디자인에 맞춰 CSS 커스터마이징 구현.
 
 4. **테스트 및 최적화**
    - Vitest로 단위 테스트 작성 및 기능 검증.
@@ -89,7 +89,6 @@ bc-fe-task/
 │   ├── services/       # 비즈니스 로직
 │   ├── pages/          # 페이지 단위 화면
 │   ├── types/          # 타입 정의
-│   ├── styles/         # CSS 스타일
 │   ├── App.tsx
 │   └── main.tsx
 ├── .env

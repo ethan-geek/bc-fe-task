@@ -1,0 +1,33 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 14px;
+  height: 48px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.header-title {
+  margin: 0;
+  width: 60px;
+  height: 24px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.88);
+}
+
+.add-button {
+  width: 73px;
+  height: 32px;
+  background: #4a7cfe;
+  border: 1px solid #4a7cfe;
+  border-radius: 8px;
+  padding: 0 12px;
+  font-size: 14px;
+  line-height: 22px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

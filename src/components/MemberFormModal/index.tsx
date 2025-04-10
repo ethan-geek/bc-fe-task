@@ -34,18 +34,26 @@ const MemberFormModal: React.FC<MemberFormModalProps> = ({
   const [form] = Form.useForm();
 
   const formattedInitialValues = useMemo(() => {
-    return initialValues
-      ? {
-          [fieldToKeyMap['이름']]: initialValues.name,
-          [fieldToKeyMap['주소']]: initialValues.address,
-          [fieldToKeyMap['메모']]: initialValues.memo,
-          [fieldToKeyMap['가입일']]: initialValues.joinDate
-            ? moment(initialValues.joinDate)
-            : null,
-          [fieldToKeyMap['직업']]: initialValues.job,
-          [fieldToKeyMap['이메일 수신 동의']]: initialValues.emailConsent,
-        }
-      : {};
+    if (!initialValues) {
+      return {
+        [fieldToKeyMap['이름']]: '',
+        [fieldToKeyMap['주소']]: '',
+        [fieldToKeyMap['메모']]: '',
+        [fieldToKeyMap['가입일']]: null,
+        [fieldToKeyMap['직업']]: undefined,
+        [fieldToKeyMap['이메일 수신 동의']]: false,
+      };
+    }
+    return {
+      [fieldToKeyMap['이름']]: initialValues.name || '',
+      [fieldToKeyMap['주소']]: initialValues.address || '',
+      [fieldToKeyMap['메모']]: initialValues.memo || '',
+      [fieldToKeyMap['가입일']]: initialValues.joinDate
+        ? moment(initialValues.joinDate)
+        : null,
+      [fieldToKeyMap['직업']]: initialValues.job || undefined,
+      [fieldToKeyMap['이메일 수신 동의']]: initialValues.emailConsent || false,
+    };
   }, [initialValues]);
 
   // 모달이 열릴 때마다 폼 초기값 설정
@@ -58,20 +66,27 @@ const MemberFormModal: React.FC<MemberFormModalProps> = ({
   }, [open, form, formattedInitialValues]);
 
   const handleOk = () => {
-    form.validateFields().then((values) => {
-      // 폼 데이터를 IMember 객체로 변환
-      const memberData: IMember = {
-        id: initialValues?.id || Date.now().toString(),
-        name: values[fieldToKeyMap['이름']] || '',
-        address: values[fieldToKeyMap['주소']] || '',
-        memo: values[fieldToKeyMap['메모']] || '',
-        joinDate: values[fieldToKeyMap['가입일']].format('YYYY-MM-DD'),
-        job: values[fieldToKeyMap['직업']] || undefined,
-        emailConsent: values[fieldToKeyMap['이메일 수신 동의']] || false,
-      };
-      onSave(memberData);
-      form.resetFields();
-    });
+    form
+      .validateFields()
+      .then((values) => {
+        const joinDate = values[fieldToKeyMap['가입일']];
+        const memberData: IMember = {
+          id: initialValues?.id || Date.now().toString(),
+          name: values[fieldToKeyMap['이름']] || '',
+          address: values[fieldToKeyMap['주소']] || '',
+          memo: values[fieldToKeyMap['메모']] || '',
+          joinDate: joinDate
+            ? joinDate.format('YYYY-MM-DD')
+            : moment().format('YYYY-MM-DD'), // joinDate가 null일 경우 현재 날짜
+          job: values[fieldToKeyMap['직업']] || '',
+          emailConsent: values[fieldToKeyMap['이메일 수신 동의']] || false,
+        };
+        onSave(memberData);
+        form.resetFields();
+      })
+      .catch((error) => {
+        console.error('Form validation failed:', error);
+      });
   };
 
   return (
@@ -83,7 +98,7 @@ const MemberFormModal: React.FC<MemberFormModalProps> = ({
     >
       <Form
         form={form}
-        initialValues={formattedInitialValues ?? undefined}
+        initialValues={formattedInitialValues}
         layout="vertical"
       >
         {fields.map((field) => (
@@ -91,6 +106,7 @@ const MemberFormModal: React.FC<MemberFormModalProps> = ({
             key={field.label}
             name={fieldToKeyMap[field.label]}
             label={field.label}
+            htmlFor={fieldToKeyMap[field.label]}
             rules={[
               {
                 required: field.required,
@@ -106,7 +122,7 @@ const MemberFormModal: React.FC<MemberFormModalProps> = ({
                 : []),
             ]}
           >
-            <FieldInput<Moment> field={field} />
+            <FieldInput<Moment> id={fieldToKeyMap[field.label]} field={field} />
           </Form.Item>
         ))}
       </Form>

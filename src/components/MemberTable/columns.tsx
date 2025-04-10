@@ -70,6 +70,7 @@ export const getColumns = (
       filters: uniqueJobs.map((job) => ({ text: job, value: job })),
       onFilter: (value: boolean | Key, member: IMember) =>
         member.job === String(value),
+      render: (value: string | undefined) => value ?? '',
     },
     {
       title: '이메일 수신 동의',

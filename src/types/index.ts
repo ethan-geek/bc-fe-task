@@ -1,4 +1,3 @@
-// src/types/index.ts
 export interface IField {
   type: 'text' | 'textarea' | 'date' | 'select' | 'checkbox';
   label: string;

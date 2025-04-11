@@ -5,7 +5,10 @@ import { Checkbox, Button, Dropdown } from 'antd';
 import { MoreOutlined } from '@ant-design/icons';
 
 // 고유 값을 추출하는 유틸리티 함수
-const getUniqueValues = (members: IMember[], key: keyof IMember): string[] => {
+const getUniqueMemberFieldValues = (
+  members: IMember[],
+  key: keyof IMember
+): string[] => {
   const values = members.map((member) => String(member[key] ?? ''));
   return [...new Set(values)].filter((value) => value !== '');
 };
@@ -16,11 +19,11 @@ export const getColumns = (
   onEdit: (member: IMember) => void,
   onDelete: (id: string) => void
 ): ColumnType<IMember>[] => {
-  const uniqueNames = getUniqueValues(members, 'name');
-  const uniqueAddresses = getUniqueValues(members, 'address');
-  const uniqueMemos = getUniqueValues(members, 'memo');
-  const uniqueJoinDates = getUniqueValues(members, 'joinDate');
-  const uniqueJobs = getUniqueValues(members, 'job');
+  const uniqueNames = getUniqueMemberFieldValues(members, 'name');
+  const uniqueAddresses = getUniqueMemberFieldValues(members, 'address');
+  const uniqueMemos = getUniqueMemberFieldValues(members, 'memo');
+  const uniqueJoinDates = getUniqueMemberFieldValues(members, 'joinDate');
+  const uniqueJobs = getUniqueMemberFieldValues(members, 'job');
 
   return [
     {

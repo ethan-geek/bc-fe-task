@@ -3,21 +3,21 @@ import BaseModal from '../BaseModal';
 interface DeleteConfirmModalProps {
   open: boolean;
   name: string;
-  onConfirm: () => void;
-  onCancel: () => void;
+  onDeleteConfirm: () => void;
+  onDeleteCancel: () => void;
 }
 
 const DeleteConfirmModal: React.FC<DeleteConfirmModalProps> = ({
   open,
   name,
-  onConfirm,
-  onCancel,
+  onDeleteConfirm,
+  onDeleteCancel,
 }) => (
   <BaseModal
     open={open}
     title="회원 삭제"
-    onOk={onConfirm}
-    onCancel={onCancel}
+    onOk={onDeleteConfirm}
+    onCancel={onDeleteCancel}
     okText="삭제"
     cancelText="취소"
   >

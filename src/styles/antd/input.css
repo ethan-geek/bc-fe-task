@@ -1,0 +1,70 @@
+/* 공통 인풋 스타일 (Input, DatePicker 내부 input, Select selector 등) */
+.ant-input,
+.ant-picker-input > input,
+.ant-select-selector,
+.ant-input-affix-wrapper {
+  font-family: var(--ant-font-family);
+  font-size: var(--font-size-base);
+  color: var(--text-color);
+  height: var(--btn-height);
+  border: 1px solid var(--gray-border);
+  border-radius: var(--radius-base);
+  padding: 0 12px;
+  transition: border-color 0.2s ease;
+  box-shadow: none;
+}
+
+/* Hover 상태 */
+.ant-input:hover,
+.ant-input-affix-wrapper:hover,
+.ant-select:not(.ant-select-disabled):hover .ant-select-selector,
+.ant-picker:hover {
+  border-color: var(--primary-color);
+}
+
+/* Focus 상태 */
+.ant-input:focus,
+.ant-input-affix-wrapper-focused,
+.ant-picker-focused,
+.ant-select-focused .ant-select-selector {
+  border-color: var(--primary-color);
+  box-shadow: none;
+}
+
+/* TextArea 스타일 */
+.ant-input-textarea {
+  padding: 8px 12px;
+  border-radius: var(--radius-base);
+}
+
+/* Input 공통 스타일 */
+.ant-input {
+  font-family: var(--ant-font-family);
+  font-size: var(--font-size-base);
+  color: var(--text-color);
+  height: var(--btn-height);
+  border: 1px solid var(--gray-border);
+  border-radius: var(--radius-base);
+  padding: 0 12px;
+  transition: border-color 0.2s ease;
+  box-shadow: none;
+}
+
+/* TextArea */
+.ant-input-textarea {
+  min-height: 100px;
+  resize: none;
+  padding: 10px 12px;
+  line-height: 2.5;
+}
+
+/* Placeholder */
+.ant-input::placeholder,
+.ant-input-textarea::placeholder {
+  color: #bfbfbf;
+}
+
+textarea.ant-input {
+  line-height: 1.5;
+  padding: 10px 12px;
+}

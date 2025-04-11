@@ -1,0 +1,45 @@
+/* ==============================
+      Ant Design Modal 스타일
+============================== */
+
+/* 모달 콘텐츠 전체 (가장 바깥 Wrapper) */
+.ant-modal-content {
+  border-radius: var(--radius-base);
+  overflow: hidden;
+  background-color: #fff;
+}
+
+/* 모달 헤더 */
+.ant-modal-header {
+  border-bottom: 1px solid var(--gray-border);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: #fff;
+  border-top-left-radius: var(--radius-base);
+  border-top-right-radius: var(--radius-base);
+}
+
+/* 모달 타이틀 */
+.ant-modal-title {
+  font-size: var(--font-size-base);
+  padding: 8px 8px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+/* 모달 본문 */
+.ant-modal-body {
+  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: #fff;
+}
+
+/* 모달 푸터 */
+.ant-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-top: 1px solid var(--gray-border);
+  background-color: #fff;
+  border-bottom-left-radius: var(--radius-base);
+  border-bottom-right-radius: var(--radius-base);
+}

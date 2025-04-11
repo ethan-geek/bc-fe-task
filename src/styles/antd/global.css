@@ -1,0 +1,5 @@
+/* 모든 Ant Design 컴포넌트에 폰트 적용 */
+[class^='ant-'],
+[class*=' ant-'] {
+  font-family: var(--ant-font-family) !important;
+}

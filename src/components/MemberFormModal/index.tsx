@@ -4,7 +4,6 @@ import BaseModal from '../BaseModal';
 import FieldInput from '../FieldInput';
 import { IMember, fields } from '../../types';
 import moment, { Moment } from 'moment';
-import './styles.css';
 
 interface MemberFormModalProps {
   open: boolean;
@@ -67,7 +66,14 @@ const MemberFormModal: React.FC<MemberFormModalProps> = ({
           <Form.Item
             key={field.key}
             name={field.key}
-            label={field.label}
+            label={
+              <span>
+                {field.label}
+                {field.required && (
+                  <span className="required-asterisk"> *</span>
+                )}
+              </span>
+            }
             className={field.label === 'Action' ? 'form-item-job' : ''}
             rules={[
               {

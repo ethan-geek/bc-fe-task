@@ -1,0 +1,49 @@
+/* Select 내부 텍스트 */
+.ant-select-selection-item {
+  font-family: var(--ant-font-family);
+  font-size: var(--font-size-base);
+  color: var(--text-color);
+}
+
+/* Select 드롭다운 전체 영역 */
+.ant-select-dropdown {
+  padding: 8px 0;
+  border-radius: var(--radius-base);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.12);
+  border: 1px solid var(--gray-border);
+  background-color: #fff;
+}
+
+/* 드롭다운 항목 기본 스타일 */
+.ant-select-item {
+  font-size: var(--font-size-base);
+  padding: 8px 16px;
+  line-height: 22px;
+  color: var(--text-color);
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+/* Hover 상태 */
+.ant-select-item-option-active:not(.ant-select-item-option-disabled):not(
+    .ant-select-item-option-selected
+  ) {
+  background-color: #f9f9fb; /* 피그마 기준 hover 배경 */
+}
+
+/* 선택된 항목 */
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+  background-color: #f1f7ff;
+  color: var(--primary-color);
+}
+
+/* 선택 + Hover 겹칠 때 */
+.ant-select-item-option-selected.ant-select-item-option-active {
+  background-color: #e6eeff;
+  color: var(--primary-color);
+}
+
+/* Placeholder */
+.ant-select-selection-placeholder {
+  color: #bfbfbf;
+}

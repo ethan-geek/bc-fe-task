@@ -1,5 +1,4 @@
 import { Modal, Button } from 'antd';
-import './styles.css';
 
 interface BaseModalProps {
   open: boolean;

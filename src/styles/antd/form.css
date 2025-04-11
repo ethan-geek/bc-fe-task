@@ -1,0 +1,35 @@
+/* ==============================
+      Ant Design Form 스타일
+============================== */
+
+/* 전체 폼 마진 */
+.ant-form {
+  margin-top: 12px;
+}
+
+/* 항목 간 여백 */
+.ant-form-item {
+  margin-bottom: 16px;
+}
+
+/* 라벨 기본 스타일 */
+.ant-form-item-label > label {
+  font-size: var(--font-size-base);
+  color: var(--text-color);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* 기존 * 제거 */
+.ant-form-item-required::before {
+  display: none !important;
+  content: '';
+}
+
+/* *를 라벨 뒤에 표시 */
+.ant-form-item-required::after {
+  content: '*';
+  color: #ff4d4f;
+  margin-left: 4px;
+}

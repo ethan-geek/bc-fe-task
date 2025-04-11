@@ -1,0 +1,54 @@
+/* =============================
+   공통 버튼 스타일 (Ant Button)
+============================= */
+.ant-btn,
+.btn-cancel {
+  font-family: var(--ant-font-family);
+  font-size: var(--font-size-base);
+  border-radius: var(--radius-base);
+  font-weight: 500;
+}
+
+/* =============================
+   기본 Primary 버튼
+============================= */
+.ant-btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  line-height: 22px;
+}
+
+.ant-btn-primary:hover {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
+.ant-btn-primary:active {
+  background-color: var(--primary-active);
+  border-color: var(--primary-active);
+}
+
+.ant-btn-primary[disabled],
+.ant-btn-primary:disabled {
+  background-color: var(--disabled-color);
+  border-color: var(--disabled-color);
+  color: var(--color-white);
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+/* =============================
+   취소(Secondary) 버튼
+============================= */
+.btn-cancel {
+  background-color: var(--color-white);
+  border: 1px solid var(--gray-border);
+  color: var(--text-color);
+  height: 32px;
+  padding: 0 16px;
+}
+
+.btn-cancel:hover {
+  background-color: var(--gray-bg);
+  border-color: var(--gray-border);
+}

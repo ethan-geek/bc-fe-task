@@ -1,0 +1,39 @@
+:root {
+  --ant-font-family:
+    'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+
+  /* 색상 */
+  --primary-color: #4a7cfe;
+  --primary-hover: #739fff;
+  --primary-active: #345dd9;
+  --gray-bg: #f5f6fa;
+  --gray-border: #e0e0e0;
+  --text-color: #333;
+  --disabled-color: #e3e3e3;
+  --color-white: #ffffff;
+
+  /* 사이즈 / 레이아웃 */
+  --font-size-base: 14px;
+  --font-size-lg: 16px;
+  --radius-base: 8px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+
+  --btn-height: 36px;
+
+  /* 테이블 */
+  --table-header-bg: #f8f9fa;
+  --table-hover-bg: #f1f7ff;
+}
+
+/* 글로벌 스타일 */
+body {
+  font-family: var(--ant-font-family);
+  font-size: var(--font-size-base);
+  color: var(--text-color);
+  background-color: var(--color-white);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

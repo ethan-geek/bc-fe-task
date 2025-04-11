@@ -1,0 +1,48 @@
+/* ==============================
+   Ant Design Table - 헤더 & 필터 아이콘
+============================== */
+
+/* ========== 테이블 헤더 공통 스타일 ========== */
+.ant-table-thead > tr > th {
+  background: var(--table-header-bg);
+  border-bottom: 1px solid var(--gray-border);
+  padding: 8px;
+  font-weight: 600;
+  font-size: var(--font-size-base);
+  line-height: 22px;
+  color: var(--text-color);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+/* ========== 필터 아이콘 정렬 ========== */
+.ant-table-column-has-filters {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.ant-table-column-title {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--font-size-base);
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.ant-table-filter-trigger {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.ant-table-filter-trigger .anticon {
+  width: 12px;
+  height: 12px;
+  color: rgba(0, 0, 0, 0.25);
+}

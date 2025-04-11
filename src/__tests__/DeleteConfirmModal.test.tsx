@@ -12,8 +12,8 @@ describe('DeleteConfirmModal', () => {
       <DeleteConfirmModal
         open={true}
         name="John Doe"
-        onConfirm={mockOnConfirm}
-        onCancel={mockOnCancel}
+        onDeleteConfirm={mockOnConfirm}
+        onDeleteCancel={mockOnCancel}
       />
     );
 
@@ -28,8 +28,8 @@ describe('DeleteConfirmModal', () => {
       <DeleteConfirmModal
         open={true}
         name="John Doe"
-        onConfirm={mockOnConfirm}
-        onCancel={mockOnCancel}
+        onDeleteConfirm={mockOnConfirm}
+        onDeleteCancel={mockOnCancel}
       />
     );
 
@@ -47,8 +47,8 @@ describe('DeleteConfirmModal', () => {
       <DeleteConfirmModal
         open={true}
         name="John Doe"
-        onConfirm={mockOnConfirm}
-        onCancel={mockOnCancel}
+        onDeleteConfirm={mockOnConfirm}
+        onDeleteCancel={mockOnCancel}
       />
     );
 

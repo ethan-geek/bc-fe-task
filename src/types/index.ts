@@ -1,4 +1,7 @@
+export type MemberJob = '개발자' | 'PO' | '디자이너';
+
 export interface IField {
+  key: keyof IMember;
   type: 'text' | 'textarea' | 'date' | 'select' | 'checkbox';
   label: string;
   required: boolean;
@@ -9,25 +12,43 @@ export interface IField {
 export interface IMember {
   id: string;
   name: string;
+  joinDate: string;
+  emailConsent: boolean;
   address?: string;
   memo?: string;
-  joinDate: string;
-  job?: '개발자' | 'PO' | '디자이너';
-  emailConsent: boolean;
+  job?: MemberJob;
 }
 
 export const fields: IField[] = [
-  { type: 'text', label: '이름', required: true, maxLength: 20 },
-  { type: 'text', label: '주소', required: false, maxLength: 20 },
-  { type: 'textarea', label: '메모', required: false, maxLength: 50 },
-  { type: 'date', label: '가입일', required: true },
+  { key: 'name', type: 'text', label: '이름', required: true, maxLength: 20 },
   {
+    key: 'address',
+    type: 'text',
+    label: '주소',
+    required: false,
+    maxLength: 20,
+  },
+  {
+    key: 'memo',
+    type: 'textarea',
+    label: '메모',
+    required: false,
+    maxLength: 50,
+  },
+  { key: 'joinDate', type: 'date', label: '가입일', required: true },
+  {
+    key: 'job',
     type: 'select',
     label: '직업',
     required: false,
     options: ['개발자', 'PO', '디자이너'],
   },
-  { type: 'checkbox', label: '이메일 수신 동의', required: false },
+  {
+    key: 'emailConsent',
+    type: 'checkbox',
+    label: '이메일 수신 동의',
+    required: false,
+  },
 ];
 
 export const initialMembers: IMember[] = [

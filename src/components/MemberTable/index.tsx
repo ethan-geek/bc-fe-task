@@ -1,4 +1,5 @@
 // src/components/MemberTable.tsx
+import { useMemo } from 'react';
 import { Table } from 'antd';
 import { IMember } from '../../types';
 import { getColumns } from './columns';
@@ -20,11 +21,16 @@ const MemberTable: React.FC<MemberTableProps> = ({
   onEdit,
   onDelete,
 }) => {
+  const columns = useMemo(
+    () => getColumns(members, onEdit, onDelete),
+    [members, onEdit, onDelete]
+  );
+
   return (
     <Table
       className="custom-table"
       dataSource={members}
-      columns={getColumns(members, onEdit, onDelete)}
+      columns={columns}
       rowKey="id"
       rowSelection={rowSelection}
       pagination={false}

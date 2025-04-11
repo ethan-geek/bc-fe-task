@@ -8,6 +8,7 @@ import { PlusOutlined } from '@ant-design/icons';
 import { v4 as uuidv4 } from 'uuid';
 
 import { useMembers } from '../../hooks/useMembers';
+import { useModal } from '../../hooks/useModal';
 
 import './styles.css';
 
@@ -20,31 +21,15 @@ const MemberPage: React.FC<MemberPageProps> = ({
 }) => {
   const { members, addMember, updateMember, removeMember } =
     useMembers(initial);
-  const [isMemberFormOpen, setMemberFormOpen] = useState(false);
-  const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
+
+  const createOrEditModal = useModal();
+  const deleteModal = useModal();
+
   const [memberBeingEdited, setMemberBeingEdited] = useState<IMember | null>(
     null
   );
   const [memberIdToDelete, setMemberIdToDelete] = useState<string | null>(null);
   const [selectedRowKeys, setSelectedRowKeys] = useState<string[]>([]);
-
-  const handleMemberSave = (member: IMember) => {
-    if (memberBeingEdited) {
-      updateMember({ ...member, id: memberBeingEdited.id });
-    } else {
-      addMember({ ...member, id: uuidv4() });
-    }
-    setMemberFormOpen(false);
-    setMemberBeingEdited(null);
-  };
-
-  const handleDeleteConfirm = () => {
-    if (memberIdToDelete) {
-      removeMember(memberIdToDelete);
-      setDeleteModalOpen(false);
-      setMemberIdToDelete(null);
-    }
-  };
 
   const rowSelection = {
     selectedRowKeys,
@@ -53,13 +38,51 @@ const MemberPage: React.FC<MemberPageProps> = ({
     },
   };
 
+  const handleCreateNew = () => {
+    setMemberBeingEdited(null);
+    createOrEditModal.openModal();
+  };
+
+  const handleEdit = (member: IMember) => {
+    setMemberBeingEdited(member);
+    createOrEditModal.openModal();
+  };
+
+  const handleDelete = (id: string) => {
+    setMemberIdToDelete(id);
+    deleteModal.openModal();
+  };
+
+  const handleDeleteCancel = () => {
+    deleteModal.closeModal();
+    setMemberIdToDelete(null);
+  };
+
+  const handleMemberSave = (member: Omit<IMember, 'id'>) => {
+    if (memberBeingEdited) {
+      updateMember({ ...member, id: memberBeingEdited.id });
+    } else {
+      addMember({ ...member, id: uuidv4() });
+    }
+    createOrEditModal.closeModal();
+    setMemberBeingEdited(null);
+  };
+
+  const handleDeleteConfirm = () => {
+    if (memberIdToDelete) {
+      removeMember(memberIdToDelete);
+      deleteModal.closeModal();
+      setMemberIdToDelete(null);
+    }
+  };
+
   return (
     <div className="member-page-container">
       <div className="header-container">
         <h1 className="header-title">회원 목록</h1>
         <Button
           type="primary"
-          onClick={() => setMemberFormOpen(true)}
+          onClick={handleCreateNew}
           icon={<PlusOutlined />}
           className="add-button"
           aria-label="회원 추가"
@@ -70,30 +93,24 @@ const MemberPage: React.FC<MemberPageProps> = ({
       <MemberTable
         members={members}
         rowSelection={rowSelection}
-        onEdit={(member) => {
-          setMemberBeingEdited(member);
-          setMemberFormOpen(true);
-        }}
-        onDelete={(id) => {
-          setMemberIdToDelete(id);
-          setDeleteModalOpen(true);
-        }}
+        onEdit={handleEdit}
+        onDelete={handleDelete}
       />
       <MemberFormModal
-        open={isMemberFormOpen}
+        open={createOrEditModal.isOpen}
         mode={memberBeingEdited ? 'edit' : 'add'}
         initialValues={memberBeingEdited}
         onSave={handleMemberSave}
         onCancel={() => {
-          setMemberFormOpen(false);
+          createOrEditModal.closeModal();
           setMemberBeingEdited(null);
         }}
       />
       <DeleteConfirmModal
-        open={isDeleteModalOpen}
+        open={deleteModal.isOpen}
         name={members.find((m) => m.id === memberIdToDelete)?.name || ''}
         onDeleteConfirm={handleDeleteConfirm}
-        onDeleteCancel={() => setDeleteModalOpen(false)}
+        onDeleteCancel={handleDeleteCancel}
       />
     </div>
   );

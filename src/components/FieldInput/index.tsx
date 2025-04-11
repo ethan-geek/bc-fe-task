@@ -3,18 +3,17 @@ import { IField } from '../../types';
 import { Moment } from 'moment';
 
 interface FieldInputProps<T> {
-  id: string;
   field: IField;
   value?: T;
   onChange?: (value: T) => void;
 }
 
-const FieldInput = <T,>({ id, field, value, onChange }: FieldInputProps<T>) => {
+const FieldInput = <T,>({ field, value, onChange }: FieldInputProps<T>) => {
   switch (field.type) {
     case 'text':
       return (
         <Input
-          id={id}
+          id={String(field.key)}
           value={value as string}
           onChange={(e) => onChange?.(e.target.value as T)}
           maxLength={field.maxLength}
@@ -23,7 +22,7 @@ const FieldInput = <T,>({ id, field, value, onChange }: FieldInputProps<T>) => {
     case 'textarea':
       return (
         <Input.TextArea
-          id={id}
+          id={String(field.key)}
           value={value as string}
           onChange={(e) => onChange?.(e.target.value as T)}
           maxLength={field.maxLength}
@@ -32,7 +31,7 @@ const FieldInput = <T,>({ id, field, value, onChange }: FieldInputProps<T>) => {
     case 'date':
       return (
         <DatePicker
-          id={id}
+          id={String(field.key)}
           value={(value as Moment) ?? null}
           onChange={(date) => onChange?.(date as T)}
           format="YYYY-MM-DD"
@@ -41,7 +40,7 @@ const FieldInput = <T,>({ id, field, value, onChange }: FieldInputProps<T>) => {
     case 'select':
       return (
         <Select
-          id={id}
+          id={String(field.key)}
           value={value as string}
           onChange={(val) => onChange?.(val as T)}
           options={field.options?.map((opt) => ({ label: opt, value: opt }))}
@@ -50,7 +49,7 @@ const FieldInput = <T,>({ id, field, value, onChange }: FieldInputProps<T>) => {
     case 'checkbox':
       return (
         <Checkbox
-          id={id}
+          id={String(field.key)}
           checked={value as boolean}
           onChange={(e) => onChange?.(e.target.checked as T)}
         />

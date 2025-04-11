@@ -13,6 +13,17 @@ const getUniqueMemberFieldValues = (
   return [...new Set(values)].filter((value) => value !== '');
 };
 
+// 필터 아이템 생성 함수
+const createFilters = (values: string[]) => {
+  return values.map((value) => ({ text: value, value }));
+};
+
+// 필터 함수 생성
+const createFilterFunction = (key: keyof IMember) => {
+  return (value: boolean | Key, member: IMember) =>
+    String(member[key] ?? '') === String(value);
+};
+
 // columns 정의
 export const getColumns = (
   members: IMember[],
@@ -31,48 +42,40 @@ export const getColumns = (
       dataIndex: 'name',
       key: 'name',
       width: 120,
-      filters: uniqueNames.map((name) => ({ text: name, value: name })),
-      onFilter: (value: boolean | Key, member: IMember) =>
-        member.name === String(value),
+      filters: createFilters(uniqueNames),
+      onFilter: createFilterFunction('name'),
     },
     {
       title: '주소',
       dataIndex: 'address',
       key: 'address',
       width: 249,
-      filters: uniqueAddresses.map((address) => ({
-        text: address,
-        value: address,
-      })),
-      onFilter: (value: boolean | Key, member: IMember) =>
-        member.address === String(value),
+      filters: createFilters(uniqueAddresses),
+      onFilter: createFilterFunction('address'),
     },
     {
       title: '메모',
       dataIndex: 'memo',
       key: 'memo',
       width: 249,
-      filters: uniqueMemos.map((memo) => ({ text: memo, value: memo })),
-      onFilter: (value: boolean | Key, member: IMember) =>
-        member.memo === String(value),
+      filters: createFilters(uniqueMemos),
+      onFilter: createFilterFunction('memo'),
     },
     {
       title: '가입일',
       dataIndex: 'joinDate',
       key: 'joinDate',
       width: 200,
-      filters: uniqueJoinDates.map((date) => ({ text: date, value: date })),
-      onFilter: (value: boolean | Key, member: IMember) =>
-        member.joinDate === String(value),
+      filters: createFilters(uniqueJoinDates),
+      onFilter: createFilterFunction('joinDate'),
     },
     {
       title: '직업',
       dataIndex: 'job',
       key: 'job',
       width: 249,
-      filters: uniqueJobs.map((job) => ({ text: job, value: job })),
-      onFilter: (value: boolean | Key, member: IMember) =>
-        member.job === String(value),
+      filters: createFilters(uniqueJobs),
+      onFilter: createFilterFunction('job'),
       render: (value: string | undefined) => value ?? '',
     },
     {
@@ -87,8 +90,7 @@ export const getColumns = (
         { text: '예', value: true },
         { text: '아니오', value: false },
       ],
-      onFilter: (value: boolean | Key, member: IMember) =>
-        member.emailConsent === value,
+      onFilter: createFilterFunction('emailConsent'),
     },
     {
       title: '액션',

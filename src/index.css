@@ -1,17 +1,154 @@
 :root {
+  --ant-font-family:
+    'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+
+  /* 색상 */
+  --primary-color: #4a7cfe;
+  --primary-hover: #739fff;
+  --primary-active: #345dd9;
+  --gray-bg: #f5f6fa;
+  --gray-border: #e0e0e0;
+  --text-color: #333;
+  --disabled-color: #e3e3e3;
+  --color-white: #ffffff;
+
+  /* 사이즈 / 레이아웃 */
+  --font-size-base: 14px;
+  --font-size-lg: 16px;
+  --radius-base: 8px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+
+  --btn-height: 36px;
+
+  /* 테이블 */
+  --table-header-bg: #f8f9fa;
+  --table-hover-bg: #f1f7ff;
+}
+
+body {
+  font-family: var(--ant-font-family);
+  font-size: var(--font-size-base);
+  color: var(--text-color);
+  background-color: var(--color-white);
   margin: 0;
-  font-family: 'Pretendard', sans-serif;
-  --ant-font-family: 'Pretendard', sans-serif;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.member-page-container {
-  width: 100%;
-  min-height: 100vh;
-  background: #ffffff;
-  overflow-x: auto;
+[class^='ant-'],
+[class*=' ant-'] {
+  font-family: var(--ant-font-family) !important;
+}
+/* ========================
+   Ant Design 공통 버튼 스타일 오버라이드
+   ======================== */
+
+.ant-btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  border-radius: var(--radius-base);
+  font-family: var(--ant-font-family);
+  font-weight: 500;
+  font-size: var(--font-size-base);
+  line-height: 22px;
 }
 
-.custom-table {
-  width: 100%;
-  max-height: calc(100vh - 48px);
+.ant-btn-primary:hover {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
+.ant-btn-primary:active {
+  background-color: var(--primary-active);
+  border-color: var(--primary-active);
+}
+
+.ant-btn-primary[disabled],
+.ant-btn-primary:disabled {
+  background-color: var(--disabled-color);
+  border-color: var(--disabled-color);
+  color: var(--color-white);
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+/* ========================
+   Ant Design 입력 컴포넌트 전역 오버라이드
+   ======================== */
+
+/* Text input */
+.ant-input,
+.ant-picker-input > input,
+.ant-select-selector,
+.ant-input-affix-wrapper {
+  font-family: var(--ant-font-family);
+  font-size: var(--font-size-base);
+  color: var(--text-color);
+  height: var(--btn-height);
+  border: 1px solid var(--gray-border);
+  border-radius: var(--radius-base);
+  padding: 0 12px;
+  transition: border-color 0.2s ease;
+  box-shadow: none;
+}
+
+/* Hover 상태 */
+.ant-input:hover,
+.ant-input-affix-wrapper:hover,
+.ant-select:not(.ant-select-disabled):hover .ant-select-selector,
+.ant-picker:hover {
+  border-color: var(--primary-color);
+}
+
+/* Focus 상태 */
+.ant-input:focus,
+.ant-input-affix-wrapper-focused,
+.ant-picker-focused,
+.ant-select-focused .ant-select-selector {
+  border-color: var(--primary-color);
+  box-shadow: none;
+}
+
+/* TextArea */
+.ant-input-textarea {
+  padding: 8px 12px;
+  border-radius: var(--radius-base);
+}
+
+/* Select 내부 텍스트 */
+.ant-select-selection-item {
+  font-family: var(--ant-font-family);
+  font-size: var(--font-size-base);
+  color: var(--text-color);
+}
+
+/* DatePicker 내부 텍스트 */
+.ant-picker-input > input {
+  font-size: var(--font-size-base);
+  color: var(--text-color);
+}
+
+/* Checkbox */
+.ant-checkbox-inner {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1px solid var(--gray-border);
+}
+
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.ant-checkbox-checked .ant-checkbox-inner::after {
+  border: 2px solid var(--color-white);
+  border-top: 0;
+  border-left: 0;
+  top: 2px;
+  left: 5px;
+  width: 5px;
+  height: 9px;
 }

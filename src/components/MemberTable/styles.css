@@ -65,8 +65,8 @@
 }
 
 .custom-table .ant-checkbox-checked .ant-checkbox-inner {
-  background: #4a7cfe;
-  border-color: #4a7cfe;
+  background: var(--primary-color);
+  border-color: var(--primary-color);
 }
 
 .custom-table .ant-checkbox-checked .ant-checkbox-inner::after {

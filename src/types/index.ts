@@ -39,7 +39,7 @@ export const fields: IField[] = [
   {
     key: 'job',
     type: 'select',
-    label: '직업',
+    label: 'Action',
     required: false,
     options: ['개발자', 'PO', '디자이너'],
   },

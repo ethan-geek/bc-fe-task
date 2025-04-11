@@ -117,3 +117,25 @@
   margin-top: 4px;
   padding-top: 8px;
 }
+
+.readonly-datepicker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  height: var(--btn-height);
+  border: 1px solid var(--gray-border);
+  border-radius: var(--radius-base);
+  width: 90%;
+}
+
+/* 아이콘 정렬 */
+.readonly-icon {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.25);
+}
+.readonly-selectbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

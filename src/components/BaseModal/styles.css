@@ -1,0 +1,18 @@
+/* 모달 기본 구조 */
+
+.ant-modal-content {
+  border-radius: var(--radius-base);
+  overflow: hidden;
+}
+
+.ant-modal-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.ant-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}

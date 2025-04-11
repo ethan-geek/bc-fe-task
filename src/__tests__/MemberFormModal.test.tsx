@@ -46,7 +46,7 @@ describe('MemberFormModal', () => {
     expect(screen.getByLabelText('주소')).toBeInTheDocument();
     expect(screen.getByLabelText('메모')).toBeInTheDocument();
     expect(screen.getByLabelText('가입일')).toBeInTheDocument();
-    expect(screen.getByLabelText('직업')).toBeInTheDocument();
+    expect(screen.getByLabelText('Action')).toBeInTheDocument();
     expect(screen.getByLabelText('이메일 수신 동의')).toBeInTheDocument();
   });
 

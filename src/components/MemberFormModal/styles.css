@@ -1,0 +1,21 @@
+/* 전체 Form 정렬 */
+.ant-form {
+  margin-top: 12px;
+}
+
+/* 항목 간 여백 조절 */
+.ant-form-item {
+  margin-bottom: 16px;
+}
+
+/* 라벨 */
+.ant-form-item-label > label {
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+/* 필수 라벨 * */
+.ant-form-item-required::before {
+  color: #ff4d4f;
+  margin-right: 4px;
+}

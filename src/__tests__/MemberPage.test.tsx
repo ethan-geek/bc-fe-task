@@ -24,7 +24,7 @@ describe('MemberPage', () => {
     await user.click(screen.getByLabelText('이메일 수신 동의'));
 
     // 4. 저장
-    await user.click(screen.getByRole('button', { name: '확인' }));
+    await user.click(screen.getByRole('button', { name: '저장' }));
 
     // 5. 테이블 행 개수로만 확인
     const rows = await screen.findAllByRole('row');

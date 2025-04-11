@@ -1,0 +1,89 @@
+/* ==============================
+   공통 Input 스타일 (Text, TextArea)
+   ============================== */
+.ant-input,
+.ant-input-textarea {
+  font-family: var(--ant-font-family);
+  font-size: var(--font-size-base);
+  color: var(--text-color);
+  height: var(--btn-height);
+  border: 1px solid var(--gray-border);
+  border-radius: var(--radius-base);
+  padding: 0 12px;
+  transition: border-color 0.2s ease;
+  box-shadow: none;
+}
+
+/* TextArea 전용 스타일 */
+.ant-input-textarea {
+  min-height: 100px;
+  resize: none;
+  padding: 10px 12px;
+  line-height: 2.5;
+}
+
+/* ==============================
+      Select (직업) 스타일
+============================== */
+.form-item-job .ant-select.ant-select-in-form-item {
+  max-width: 85px;
+}
+
+.form-item-job .ant-select.ant-select-in-form-item .ant-select-selector {
+  height: var(--btn-height); /* 36px */
+  line-height: var(--btn-height); /* 텍스트 정렬 */
+  display: flex;
+  align-items: center; /* 수직 정렬 */
+  padding: 0 12px; /* 좌우 여백 */
+  border-radius: var(--radius-base); /* 둥근 모서리 유지 */
+  font-size: var(--font-size-base);
+}
+
+/* ==============================
+      DatePicker (가입일) 스타일
+============================== */
+.ant-picker {
+  width: 162px;
+  height: var(--btn-height);
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  border-radius: var(--radius-base);
+  box-shadow: none;
+}
+
+.ant-picker-input > input {
+  font-family: var(--ant-font-family);
+  font-size: var(--font-size-base);
+  color: var(--text-color);
+  padding: 0;
+  border: none;
+}
+
+/* ==============================
+      Checkbox (이메일 수신 동의)
+============================== */
+.ant-checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+.ant-checkbox-inner {
+  width: 16px;
+  height: 16px;
+  border-radius: 6px;
+}
+
+/* ==============================
+      Placeholder 공통 스타일
+============================== */
+.ant-input::placeholder,
+.ant-input-textarea::placeholder,
+.ant-select-selection-placeholder,
+.ant-picker-input > input::placeholder {
+  color: #bfbfbf;
+}

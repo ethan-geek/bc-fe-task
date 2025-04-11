@@ -1,4 +1,5 @@
 import { Modal, Button } from 'antd';
+import './styles.css';
 
 interface BaseModalProps {
   open: boolean;
@@ -16,7 +17,7 @@ const BaseModal: React.FC<BaseModalProps> = ({
   onOk,
   onCancel,
   children,
-  okText = '확인',
+  okText = '저장',
   cancelText = '취소',
 }) => (
   <Modal
@@ -25,7 +26,7 @@ const BaseModal: React.FC<BaseModalProps> = ({
     onOk={onOk}
     onCancel={onCancel}
     footer={[
-      <Button key="cancel" onClick={onCancel}>
+      <Button key="cancel" className="btn-cancel" onClick={onCancel}>
         {cancelText}
       </Button>,
       <Button key="ok" type="primary" onClick={onOk}>

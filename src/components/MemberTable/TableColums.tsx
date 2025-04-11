@@ -5,6 +5,7 @@ import { Checkbox, Button, Dropdown } from 'antd';
 import { MoreOutlined } from '@ant-design/icons';
 import FilterDropdown from './FilterDropdown';
 import FilterIcon from './FilterIcon';
+import { CalendarOutlined, DownOutlined } from '@ant-design/icons';
 
 // 고유 값을 추출하는 유틸리티 함수
 const getUniqueMemberFieldValues = (
@@ -76,9 +77,15 @@ export const TableColumns = (
         <FilterDropdown values={uniqueJoinDates} {...props} />
       ),
       filterIcon: (filtered) => <FilterIcon active={filtered} />,
+      render: (value: string) => (
+        <div className="readonly-datepicker">
+          <span>{value}</span>
+          <CalendarOutlined className="readonly-icon" />
+        </div>
+      ),
     },
     {
-      title: '직업',
+      title: 'Action',
       dataIndex: 'job',
       key: 'job',
       width: 180,
@@ -87,7 +94,12 @@ export const TableColumns = (
         <FilterDropdown values={uniqueJobs} {...props} />
       ),
       filterIcon: (filtered) => <FilterIcon active={filtered} />,
-      render: (value: string | undefined) => value ?? '',
+      render: (value: string | undefined) => (
+        <div className="readonly-selectbox">
+          <span>{value}</span>
+          <DownOutlined className="readonly-icon" />
+        </div>
+      ),
     },
     {
       title: '이메일 수신 동의',

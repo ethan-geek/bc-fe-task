@@ -47,7 +47,7 @@ describe('MemberTable', () => {
     expect(screen.getByText('주소')).toBeInTheDocument();
     expect(screen.getByText('메모')).toBeInTheDocument();
     expect(screen.getByText('가입일')).toBeInTheDocument();
-    expect(screen.getByText('직업')).toBeInTheDocument();
+    expect(screen.getByText('Action')).toBeInTheDocument();
     expect(screen.getByText('이메일 수신 동의')).toBeInTheDocument();
     expect(screen.getByText('액션')).toBeInTheDocument();
 
@@ -94,7 +94,7 @@ describe('MemberTable', () => {
 
     const confirmButton = within(dropdown as HTMLElement).queryByRole(
       'button',
-      { name: /확인|OK/i }
+      { name: /저장|OK/i }
     );
     if (confirmButton) {
       await userEvent.click(confirmButton);

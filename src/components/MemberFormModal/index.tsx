@@ -68,6 +68,7 @@ const MemberFormModal: React.FC<MemberFormModalProps> = ({
             key={field.key}
             name={field.key}
             label={field.label}
+            className={field.label === 'Action' ? 'form-item-job' : ''}
             rules={[
               {
                 required: field.required,

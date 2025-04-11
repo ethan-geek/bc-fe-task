@@ -1,6 +1,7 @@
 import { Input, DatePicker, Select, Checkbox } from 'antd';
 import { IField } from '../../types';
 import { Moment } from 'moment';
+import './styles.css';
 
 interface FieldInputProps<T> {
   field: IField;
@@ -9,6 +10,8 @@ interface FieldInputProps<T> {
 }
 
 const FieldInput = <T,>({ field, value, onChange }: FieldInputProps<T>) => {
+  const placeholderText = `${field.label}을 입력해주세요`;
+
   switch (field.type) {
     case 'text':
       return (
@@ -17,6 +20,7 @@ const FieldInput = <T,>({ field, value, onChange }: FieldInputProps<T>) => {
           value={value as string}
           onChange={(e) => onChange?.(e.target.value as T)}
           maxLength={field.maxLength}
+          placeholder={placeholderText}
         />
       );
     case 'textarea':
@@ -26,6 +30,7 @@ const FieldInput = <T,>({ field, value, onChange }: FieldInputProps<T>) => {
           value={value as string}
           onChange={(e) => onChange?.(e.target.value as T)}
           maxLength={field.maxLength}
+          placeholder={placeholderText}
         />
       );
     case 'date':
@@ -35,6 +40,7 @@ const FieldInput = <T,>({ field, value, onChange }: FieldInputProps<T>) => {
           value={(value as Moment) ?? null}
           onChange={(date) => onChange?.(date as T)}
           format="YYYY-MM-DD"
+          placeholder={placeholderText}
         />
       );
     case 'select':
@@ -44,6 +50,7 @@ const FieldInput = <T,>({ field, value, onChange }: FieldInputProps<T>) => {
           value={value as string}
           onChange={(val) => onChange?.(val as T)}
           options={field.options?.map((opt) => ({ label: opt, value: opt }))}
+          placeholder={placeholderText}
         />
       );
     case 'checkbox':

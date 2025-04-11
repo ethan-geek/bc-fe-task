@@ -1,0 +1,96 @@
+/* .ant-table-filter-dropdown {
+  border-radius: var(--radius-base);
+  background: #fff;
+  border: 1px solid var(--gray-border);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  padding: 12px 16px !important;
+  overflow: hidden;
+  box-sizing: border-box;
+  min-width: 160px;
+} */
+
+/* .ant-table-filter-dropdown {
+  border-radius: 12px !important;
+  background: #ffffff !important;
+  border: 1px solid var(--gray-border) !important;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.12) !important;
+  padding: 12px 16px !important;
+  overflow: hidden !important;
+  box-sizing: border-box;
+  min-width: 180px !important;
+  margin-top: 4px !important;
+} */
+
+.ant-table-filter-dropdown {
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid var(--gray-border);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.12);
+  padding: 10px 14px;
+  overflow: hidden;
+  box-sizing: border-box;
+  min-width: 180px;
+  margin-top: 9px;
+}
+
+.custom-filter-dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* 안쪽 체크박스 커스터마이징 */
+.filter-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--font-size-base);
+  color: var(--text-color);
+  padding: 8px 12px;
+  min-height: 36px;
+  border-radius: var(--radius-base);
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+/* 마우스 호버 시 배경 */
+.filter-checkbox:hover {
+  background-color: #f9f6f6;
+}
+
+/* 선택된 항목 (배경 강조) */
+.filter-checkbox.ant-checkbox-wrapper-checked {
+  background-color: #f1f7ff;
+}
+
+/* disabled 상태 */
+.filter-checkbox.ant-checkbox-wrapper-disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* 체크박스 요소 자체 정렬 보정 */
+.filter-checkbox .ant-checkbox {
+  margin-right: 0;
+  display: flex;
+  align-items: center;
+}
+
+.filter-checkbox .ant-checkbox-inner {
+  width: 16px;
+  height: 16px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+}
+
+.filter-checkbox .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+.filter-checkbox .ant-checkbox-checked .ant-checkbox-inner::after {
+  border-color: #ffffff;
+}
+
+.ant-checkbox-wrapper + .ant-checkbox-wrapper {
+  margin-left: 0 !important;
+}

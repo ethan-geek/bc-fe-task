@@ -2,7 +2,8 @@
 import { useMemo } from 'react';
 import { Table } from 'antd';
 import { IMember } from '../../types';
-import { getColumns } from './columns';
+// import { getColumns } from './columns';
+import { TableColumns } from './TableColums';
 import './styles.css';
 
 interface MemberTableProps {
@@ -22,7 +23,7 @@ const MemberTable: React.FC<MemberTableProps> = ({
   onDelete,
 }) => {
   const columns = useMemo(
-    () => getColumns(members, onEdit, onDelete),
+    () => TableColumns(members, onEdit, onDelete),
     [members, onEdit, onDelete]
   );
 

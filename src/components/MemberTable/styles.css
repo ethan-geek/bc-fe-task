@@ -1,50 +1,67 @@
-/* src/styles/MemberTable.css */
+/* ========== 테이블 헤더 스타일 ========== */
 .custom-table .ant-table-thead > tr > th {
-  background: rgba(0, 0, 0, 0.02);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  background: #f8f9fa;
+  border-bottom: 1px solid var(--gray-border);
   padding: 8px;
   font-weight: 600;
-  font-size: 14px;
+  font-size: var(--font-size-base);
   line-height: 22px;
-  color: rgba(0, 0, 0, 0.88);
+  color: var(--text-color);
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
+/* ========== 테이블 바디 스타일 ========== */
 .custom-table .ant-table-tbody > tr {
   height: 48px;
 }
 
 .custom-table .ant-table-tbody > tr > td {
   padding: 8px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid var(--gray-border);
   font-weight: 400;
-  font-size: 14px;
+  font-size: var(--font-size-base);
   line-height: 22px;
-  color: rgba(0, 0, 0, 0.88);
+  color: var(--text-color);
 }
 
-.custom-table .ant-table-tbody > tr > td.ant-table-selection-column {
-  box-sizing: border-box;
-  padding: 8px;
+/* ✅ 체크박스 컬럼 크기 정리 */
+.custom-table .ant-table-tbody > tr > td.ant-table-selection-column,
+.custom-table .ant-table-thead > tr > th.ant-table-selection-column {
+  padding: 0 8px;
   width: 32px;
   height: 48px;
-  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
+/* ========== Hover 스타일 ========== */
 .custom-table .ant-table-tbody > tr:hover > td {
-  background: #fafafa;
+  background: var(--table-hover-bg);
 }
 
-.custom-table .ant-table-column-sorter {
-  display: none;
+/* ========== 필터 아이콘 정렬 ========== */
+.custom-table .ant-table-column-has-filters {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.custom-table .ant-table-column-title {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--font-size-base);
+  color: var(--text-color);
+  font-weight: 600;
 }
 
 .custom-table .ant-table-filter-trigger {
-  width: 20px;
-  height: 22px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 8px;
 }
 
 .custom-table .ant-table-filter-trigger .anticon {
@@ -53,35 +70,50 @@
   color: rgba(0, 0, 0, 0.25);
 }
 
-.custom-table .ant-checkbox-wrapper {
-  margin: 0;
-}
-
-.custom-table .ant-checkbox-inner {
-  width: 16px;
-  height: 16px;
-  border: 1px solid #e3e3e3;
-  border-radius: 6px;
-}
-
-.custom-table .ant-checkbox-checked .ant-checkbox-inner {
-  background: var(--primary-color);
-  border-color: var(--primary-color);
-}
-
-.custom-table .ant-checkbox-checked .ant-checkbox-inner::after {
-  border-color: #ffffff;
-}
-
+/* ========== 스크롤 제한 ========== */
 .custom-table .ant-table-body {
   max-height: calc(100vh - 48px - 38px);
   overflow-x: auto;
   overflow-y: auto;
 }
 
-/* 헤더 고정 스타일 */
-.custom-table .ant-table-thead {
-  position: sticky;
-  top: 0;
-  z-index: 1;
+/* ========== 정렬 아이콘 제거 (옵션) ========== */
+.custom-table .ant-table-column-sorter {
+  display: none;
+}
+
+/* 팝업 전체 스타일 */
+.custom-action-dropdown .ant-dropdown-menu {
+  border-radius: 12px;
+  background-color: #fff;
+  padding: 8px 0;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.12);
+  padding: 8px 0;
+  min-width: 140px;
+  overflow: hidden;
+  border: none;
+}
+
+/* 개별 항목 */
+.dropdown-item {
+  display: block;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background-color 0.2s;
+  text-align: left;
+}
+
+/* hover 효과 */
+.dropdown-item:hover {
+  background-color: #f9f6f6;
+}
+
+/* 삭제 항목 전용 스타일 */
+.dropdown-item.danger {
+  color: #f04438;
+  border-top: 1px solid #eee;
+  margin-top: 4px;
+  padding-top: 8px;
 }
